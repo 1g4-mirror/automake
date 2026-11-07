@@ -49,7 +49,7 @@ AC_SUBST([RELEASE_YEAR])
 
 # The API version is the base version.  We must guarantee
 # compatibility for all releases with the same API version.
-APIVERSION=1.19
+APIVERSION=1.20
 AC_SUBST([APIVERSION])
 
 AC_SUBST([pkgvdatadir], ["\${datadir}/$PACKAGE-$APIVERSION"])
