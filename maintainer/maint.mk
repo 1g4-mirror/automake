@@ -192,7 +192,7 @@ git-tag-release: maintainer-check
 	$(git_must_have_clean_workdir); \
 	set -x; $$run $(GIT) tag -s "v$(VERSION)" -m "$(PACKAGE) $(VERSION)"
 
-git-upload-release:
+git-upload-release: check-version-consistency
 	@# Check this is a version we can cut a release (either test
 	@# or stable) from.
 	@$(determine_release_type)
@@ -216,6 +216,11 @@ git-upload-release:
 	                            $(DIST_ARCHIVES)
 
 .PHONY: print-release-type git-upload-release git-tag-release
+
+.PHONY: check-version-consistency
+maintainer-check: check-version-consistency
+check-version-consistency: lib/Automake/Config.pm $(srcdir)/doc/version.texi
+	$(AM_V_GEN)$(PERL) $(srcdir)/maintainer/check-versions.pl '$(srcdir)' '$(builddir)'
 
 
 # ------------------------------------------------------------------ #

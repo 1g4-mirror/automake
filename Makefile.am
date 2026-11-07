@@ -123,6 +123,7 @@ EXTRA_DIST += \
 EXTRA_DIST += \
   maintainer/announcement.pl \
   maintainer/check-perl-protos \
+  maintainer/check-versions.pl \
   maintainer/checklinkx \
   maintainer/am-ft \
   maintainer/am-xft \
